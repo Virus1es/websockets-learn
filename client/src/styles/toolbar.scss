@@ -2,7 +2,7 @@
 
 .toolbar {
   height: $toolbar-height;
-  padding-left: 20px;
+  padding: 0 20px;
   background-color: white;
   display: flex;
   gap: 10px;
@@ -46,6 +46,7 @@
   }
 
   .undo {
+    margin-left: auto;
     background: url("../assets/img/undo.png") no-repeat center center;
   }
 
