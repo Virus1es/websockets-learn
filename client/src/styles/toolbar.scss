@@ -18,22 +18,23 @@
     border: none;
     outline: none;
     cursor: pointer;
+    background-size: cover;
   }
 
   .brush {
-    background: url("../assets/img/brush.png");
+    background: url("../assets/img/brush.png") no-repeat center center;
   }
 
   .rect {
-    background: url("../assets/img/rect.png");
+    background: url("../assets/img/rect.png") no-repeat center center;
   }
 
   .circle {
-    background: url("../assets/img/circle.png");
+    background: url("../assets/img/circle.png") no-repeat center center;
   }
 
   .eraser {
-    background: url("../assets/img/eraser.png");
+    background: url("../assets/img/eraser.png") no-repeat center center;
   }
 }
 
