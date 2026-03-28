@@ -13,7 +13,6 @@ const Toolbar = () => {
             </button>
             <button className="toolbar__btn rect"
                     onClick={() => toolState.setTool(new Rect(canvasState.canvas))}>
-            >
             </button>
             <button className="toolbar__btn circle"></button>
             <button className="toolbar__btn eraser"></button>
