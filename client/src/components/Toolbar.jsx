@@ -6,6 +6,7 @@ import Brush from "../tools/Brush.js";
 import Rect from "../tools/Rect.js";
 import Circle from "../tools/Circle.js";
 import Eraser from "../tools/Eraser.js";
+import Line from "../tools/Line.js";
 
 const Toolbar = () => {
     return (
@@ -22,7 +23,9 @@ const Toolbar = () => {
             <button className="toolbar__btn eraser"
                     onClick={() => toolState.setTool(new Eraser(canvasState.canvas))}
             ></button>
-            <button className="toolbar__btn line"></button>
+            <button className="toolbar__btn line"
+                    onClick={() => toolState.setTool(new Line(canvasState.canvas))}
+            ></button>
             <input type="color"/>
             <button className="toolbar__btn undo"></button>
             <button className="toolbar__btn redo"></button>
