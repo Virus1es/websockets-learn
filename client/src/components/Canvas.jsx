@@ -53,8 +53,8 @@ const Canvas = observer (() => {
     const drawHandler = (msg) => {
         const figure = msg.figure;
         const ctx = canvasRef.current.getContext('2d');
-        switch (figure) {
-            case "brash":
+        switch (figure.type) {
+            case "brush":
                 Brush.draw(ctx, figure.x, figure.y);
                 break;
         }
