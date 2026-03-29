@@ -25,6 +25,8 @@ const Canvas = observer (() => {
     useEffect(() => {
         if(canvasState.username) {
             const socket = new WebSocket('ws://localhost:5000/');
+            canvasState.socket = socket;
+            canvasState.setSessionId(params.id);
             socket.onopen = () => {
                 console.log('Connection set');
                 socket.send(JSON.stringify({
