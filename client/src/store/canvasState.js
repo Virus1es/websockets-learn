@@ -26,6 +26,7 @@ class CanvasState {
         let ctx = this.canvas.getContext('2d');
         if(this.undoList.length > 0){
             let dataURL = this.undoList.pop();
+            this.pushToRedo(this.canvas.toDataURL());
             let img = new Image();
             img.src = dataURL;
             img.onload = () => {
@@ -38,7 +39,17 @@ class CanvasState {
     }
 
     redo() {
-
+        let ctx = this.canvas.getContext('2d');
+        if(this.undoList.length > 0){
+            let dataURL = this.redoList.pop();
+            this.pushToUndo(this.canvas.toDataURL());
+            let img = new Image();
+            img.src = dataURL;
+            img.onload = () => {
+                ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
+            }
+        }
     }
 }
 

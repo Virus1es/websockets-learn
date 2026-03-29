@@ -45,6 +45,7 @@ const Toolbar = () => {
                     title="Отмена последнего действия"
             ></button>
             <button className="toolbar__btn redo"
+                    onClick={() => canvasState.redo()}
                     title="Вернуть отменённое действие"
             ></button>
             <button className="toolbar__btn save"
