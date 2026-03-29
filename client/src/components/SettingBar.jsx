@@ -1,21 +1,21 @@
 import React, {useState} from 'react';
 import '../styles/toolbar.scss';
+import toolState from "../store/toolState.js";
 
 const SettingBar = () => {
-    const [lineWidth, setLineWidth] = useState(1);
-
     return (
         <div className="setting-bar">
-            <p>Толщина линии:</p>
+            <label htmlFor="line-width">Толщина линии:</label>
             <input type="number"
-                   value={lineWidth}
-                   onChange={(e) => setLineWidth(Number(e.target.value))}
+                   id="line-width"
+                   defaultValue={1}
+                   onChange={(e) => toolState.setLineWidth(Number(e.target.value))}
                    style={{width: '3%'}}
                    min={1}
-                   max={20}
+                   max={50}
             />
-            <p>Цвет обводки</p>
-            <input type="color" />
+            <label htmlFor="stroke-color">Цвет обводки</label>
+            <input id="stroke-color" type="color" />
         </div>
     );
 };
