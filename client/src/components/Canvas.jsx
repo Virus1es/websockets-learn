@@ -10,6 +10,7 @@ const Canvas = observer (() => {
 
     const canvasRef = useRef(null);
 
+    const usernameRef = useRef(null);
 
     useEffect(() => {
         canvasState.setCanvas(canvasRef.current);
@@ -21,7 +22,7 @@ const Canvas = observer (() => {
     };
 
     const connectionHandler = () => {
-
+        canvasState.setUsername(usernameRef.current.value);
     }
 
     return (
@@ -31,7 +32,7 @@ const Canvas = observer (() => {
                     <Modal.Title>Введите ваше имя</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <input type="text"/>
+                    <input ref={usernameRef} type="text"/>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => connectionHandler()}>
