@@ -11,6 +11,10 @@ function App() {
             <div className="app">
                 <Routes>
                     <Route
+                        path="/"
+                        element={<Navigate to={`f${(+new Date).toString(16)}`} replace />}
+                    />
+                    <Route
                         path='/:id'
                         element={
                             <>
@@ -19,8 +23,8 @@ function App() {
                                 <Canvas/>
                             </>
                     }/>
+                    <Route path="*" element={<div>404 Not Found</div>} />
                 </Routes>
-                <Navigate to={`f${(+new Date).toString(16)}`} replace/>
             </div>
         </BrowserRouter>
     )
