@@ -1,15 +1,8 @@
-import Tool from "./Tool.js";
+import Brush from "./Brush.js";
 
-export default class Eraser extends Tool {
+export default class Eraser extends Brush {
     constructor(canvas) {
         super(canvas);
-        this.listen();
-    }
-
-    listen() {
-        this.canvas.onmousedown = this.mouseDownHandler.bind(this);
-        this.canvas.onmouseup = this.mouseUpHandler.bind(this);
-        this.canvas.onmousemove = this.mouseMoveHandler.bind(this);
     }
 
     mouseUpHandler(e) {
@@ -22,12 +15,6 @@ export default class Eraser extends Tool {
         this.ctx.beginPath();
         this.ctx.moveTo(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop);
         this.previosColor = this.ctx.strokeStyle;
-    }
-
-    mouseMoveHandler(e) {
-        if(this.mouseDown) {
-            this.draw(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop);
-        }
     }
 
     draw(x, y) {
