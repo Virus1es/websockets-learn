@@ -14,14 +14,14 @@ export default class Eraser extends Tool {
 
     mouseUpHandler(e) {
         this.mouseDown = false;
-        this.ctx.fillStyle = this.previosColor;
+        this.ctx.strokeStyle = this.previosColor;
     }
 
     mouseDownHandler(e) {
         this.mouseDown = true;
         this.ctx.beginPath();
         this.ctx.moveTo(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop);
-        this.previosColor = this.ctx.fillStyle;
+        this.previosColor = this.ctx.strokeStyle;
     }
 
     mouseMoveHandler(e) {
