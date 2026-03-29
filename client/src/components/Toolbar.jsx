@@ -17,11 +17,11 @@ const Toolbar = () => {
     return (
         <div className="toolbar">
             <button className="toolbar__btn brush"
-                    onClick={() => toolState.setTool(new Brush(canvasState.canvas))}
+                    onClick={() => toolState.setTool(new Brush(canvasState.canvas, canvasState.socket, canvasState.sessionId))}
                     title="Кисть"
             ></button>
             <button className="toolbar__btn rect"
-                    onClick={() => toolState.setTool(new Rect(canvasState.canvas))}
+                    onClick={() => toolState.setTool(new Rect(canvasState.canvas, canvasState.socket, canvasState.sessionId))}
                     title="Прямоугольник"
             ></button>
             <button className="toolbar__btn circle"
