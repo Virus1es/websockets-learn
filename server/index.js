@@ -10,7 +10,6 @@ const PORT = process.env.PORT ?? 5000;
 
 app.ws('/', (ws, req) => {
     console.log('CONNECTED');
-    ws.send('Connect are success');
     ws.on('message', (msg) => {
         msg = JSON.parse(msg);
         switch (msg.method) {

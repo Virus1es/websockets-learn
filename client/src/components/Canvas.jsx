@@ -36,10 +36,22 @@ const Canvas = observer (() => {
                 }))
             }
             socket.onmessage = (event) => {
-                console.log(event.data);
+                let msg = JSON.parse(event.data);
+                switch (msg.method) {
+                    case "connection":
+                        console.log(`User ${msg.username} are connected`);
+                        break;
+                    case "draw":
+                        drawHandler(msg);
+                        break;
+                }
             }
         }
     }, [canvasState.username]);
+
+    const drawHandler = msg => {
+
+    }
 
     const mouseDownHandler = () => {
         canvasState.pushToUndo(canvasRef.current.toDataURL());
