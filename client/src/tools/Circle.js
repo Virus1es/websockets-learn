@@ -28,7 +28,7 @@ export default class Circle extends Tool {
         if(this.mouseDown) {
             let currentX = e.pageX - e.target.offsetLeft;
             let currentY = e.pageY - e.target.offsetTop;
-            let radius = Math.sqrt((this.startX - currentX) * (this.startX - currentX) - (this.startY - currentY));
+            let radius = Math.sqrt(Math.pow((this.startX - currentX), 2) - Math.pow((this.startY - currentY), 2));
             this.draw(this.startX, this.startY, radius);
         }
     }
