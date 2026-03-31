@@ -7,6 +7,8 @@ import Brush from "../tools/Brush.js";
 import {Button, Modal} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import Rect from "../tools/Rect.js";
+import axios from "axios";
+
 
 const Canvas = observer (() => {
 
@@ -62,7 +64,6 @@ const Canvas = observer (() => {
                 Rect.staticDraw(ctx, figure.x, figure.y, figure.width, figure.height, figure.color);
                 break;
             case "finish":
-                console.log('here');
                 ctx.beginPath();
                 break;
         }
@@ -70,6 +71,8 @@ const Canvas = observer (() => {
 
     const mouseDownHandler = () => {
         canvasState.pushToUndo(canvasRef.current.toDataURL());
+        axios.post(`http://localhost:5000/image?id=${params.id}`, {img: canvasRef.current.toDataURL()})
+            .then(response => console.log(response));
     };
 
     const connectionHandler = () => {
