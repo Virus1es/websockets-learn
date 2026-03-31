@@ -14,6 +14,16 @@ const Toolbar = () => {
         toolState.setFillColor(e.target.value);
     }
 
+    const download = () => {
+        const dataUrl = canvasState.canvas.toDataURL();
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = canvasState.sessionId + '.jpg';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
     return (
         <div className="toolbar">
             <button className="toolbar__btn brush"
@@ -50,6 +60,7 @@ const Toolbar = () => {
             ></button>
             <button className="toolbar__btn save"
                     title="Сохранить изображение"
+                    onClick={() => download()}
             ></button>
         </div>
     );
