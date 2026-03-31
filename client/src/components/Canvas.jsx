@@ -71,9 +71,12 @@ const Canvas = observer (() => {
 
     const mouseDownHandler = () => {
         canvasState.pushToUndo(canvasRef.current.toDataURL());
+    };
+
+    const mouseUpHandler = () => {
         axios.post(`http://localhost:5000/image?id=${params.id}`, {img: canvasRef.current.toDataURL()})
             .then(response => console.log(response));
-    };
+    }
 
     const connectionHandler = () => {
         canvasState.setUsername(usernameRef.current.value);
@@ -100,6 +103,7 @@ const Canvas = observer (() => {
                 width={600}
                 height={400}
                 onMouseDown={() => mouseDownHandler()}
+                onMouseUp={() => mouseUpHandler()}
             />
         </div>
     );
