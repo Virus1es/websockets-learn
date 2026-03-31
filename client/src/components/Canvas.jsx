@@ -83,8 +83,7 @@ const Canvas = observer (() => {
     };
 
     const mouseUpHandler = () => {
-        axios.post(`http://localhost:5000/image?id=${params.id}`, {img: canvasRef.current.toDataURL()})
-            .then(response => console.log(response));
+        void axios.post(`http://localhost:5000/image?id=${params.id}`, {img: canvasRef.current.toDataURL()});
     }
 
     const connectionHandler = () => {
