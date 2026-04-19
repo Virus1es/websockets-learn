@@ -1,4 +1,5 @@
 name: GitHub Actions for Client
+run-name: Client CI
 on:
   push:
     paths:

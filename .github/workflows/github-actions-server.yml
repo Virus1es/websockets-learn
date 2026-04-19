@@ -1,4 +1,5 @@
 name: GitHub Actions for Sever
+run-name: Server CI
 on:
   push:
     paths:
